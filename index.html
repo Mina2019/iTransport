@@ -29,7 +29,7 @@
     <section class="lesson" data-lesson="planning"><h2>Planning</h2><p>Link land use, travel choices, long-term investments, and community goals.</p><div class="topics"><button class="topic">Long-term plans and models</button><button class="topic">Land use</button><button class="topic">Active transportation</button><button class="topic">Travel demand management</button><button class="topic">Sustainability and stakeholders</button></div></section>
     <section class="lesson" data-lesson="pavement"><h2>Pavement</h2><p>Build and manage pavement assets for long-term performance and value.</p><div class="topics"><button class="topic">Pavement design</button><button class="topic">Asset management</button><button class="topic">Maintenance</button><button class="topic">Materials</button><button class="topic">Performance models</button></div></section>
 
-    <section id="study" class="study" aria-live="polite"><h3 id="studyTitle">Geometric design</h3><p>Choose a learning track and course section.</p><div class="study-actions"><button id="theory" class="active">Theory</button><button id="practice">Practice</button></div><div class="course-actions"><button data-section="lecture" class="active">Lecture</button><button data-section="homework">Homework</button><button data-section="quiz">Quiz · 5 Qs</button><button data-section="test">Test · 20 Qs</button><button data-section="final">Final exam · 50 Qs</button></div><p id="studyCopy" class="study-copy">Learn the principles, terminology, design criteria, and calculations behind geometric design.</p><div id="studyLinks" class="study-links"></div><div id="assessment" class="assessment"></div></section>
+    <section id="study" class="study" aria-live="polite"><h3 id="studyTitle">Geometric design</h3><p>Choose a learning track and course section.</p><div class="study-actions"><button id="theory" class="active">Theory</button><button id="practice">Practice</button></div><div class="course-actions"><button data-section="lecture" class="active">Lecture</button><button data-section="homework">Homework</button><button data-section="quiz">Quiz · 5 Qs</button><button data-section="test">Test · 20 Qs</button><button data-section="final">Final exam · 50 Qs</button></div><p id="studyCopy" class="study-copy">Learn the principles, terminology, design criteria, and calculations behind geometric design.</p><div id="studyLinks" class="study-links"></div><div id="quickCheck" class="assessment"></div><div id="assessment" class="assessment"></div></section>
 
     <section class="interview">
       <h2>Transportation-engineer interview sprint</h2>
@@ -168,7 +168,7 @@
     function areaForTopic(topic){return Object.keys(areaTopics).find(area=>areaTopics[area].includes(topic))}
     let selectedTopic='Geometric design',selectedTrack='theory',selectedSection='lecture';
     const study=document.querySelector('#study'),studyTitle=document.querySelector('#studyTitle'),studyCopy=document.querySelector('#studyCopy'),studyLinks=document.querySelector('#studyLinks'),theory=document.querySelector('#theory'),practice=document.querySelector('#practice');
-    const assessment=document.querySelector('#assessment');
+    const quickCheck=document.querySelector('#quickCheck'),assessment=document.querySelector('#assessment');
     function questionsFor(area,section){
       const facts=questionFacts[area];
       const direct=facts.map(([q,a,d,r],i)=>({q,a,d,n:r,id:`${area}-${i}-a`}));
@@ -193,6 +193,20 @@
         if(card.dataset.answered)return;card.dataset.answered='yes';answered+=1;const isCorrect=button.dataset.correct==='true';if(isCorrect)correct+=1;card.querySelectorAll('.option').forEach(option=>{option.disabled=true;if(option.dataset.correct==='true')option.classList.add('correct')});if(!isCorrect)button.classList.add('wrong');card.querySelector('.answer-note').classList.add('show');assessment.querySelector('#score').textContent=`${correct} of ${questions.length} correct · ${answered} answered`;
       }));
     }
+    function renderQuickCheck(){
+      if(selectedSection!=='lecture'){quickCheck.classList.remove('show');quickCheck.innerHTML='';return;}
+      const isTheory=selectedTrack==='theory';
+      const question=isTheory?`What should guide a ${selectedTopic.toLowerCase()} decision?`:`What makes a ${selectedTopic.toLowerCase()} recommendation professionally defensible?`;
+      const answer=isTheory?'Use current governing guidance, evidence, local context, and the needs of affected users.':'Document the data and assumptions, compare feasible alternatives, and monitor the result.';
+      const distractors=isTheory?['Choose the option with the shortest calculation.','Copy a solution from an unrelated location.','Optimize only one vehicle-delay measure.']:['Use one software output without checking it.','Skip the field review to save time.','Assume the first alternative will work everywhere.'];
+      const options=[answer,...distractors].sort(()=>Math.random()-.5);
+      quickCheck.classList.add('show');
+      quickCheck.innerHTML=`<h4>Quick check · one question</h4><div class="question"><strong>${question}</strong>${options.map(option=>`<button class="option" type="button" data-correct="${option===answer}">${option}</button>`).join('')}<p class="answer-note">${answer}</p></div>`;
+      quickCheck.querySelectorAll('.option').forEach(button=>button.onclick=()=>{
+        const card=button.closest('.question');if(card.dataset.answered)return;card.dataset.answered='yes';
+        const isCorrect=button.dataset.correct==='true';card.querySelectorAll('.option').forEach(option=>{option.disabled=true;if(option.dataset.correct==='true')option.classList.add('correct')});if(!isCorrect)button.classList.add('wrong');card.querySelector('.answer-note').classList.add('show');
+      });
+    }
     function showStudy(){
       const lesson=lessons[selectedTopic],lecture=lesson?.[selectedTrack]||'Content coming soon. Always check the current governing standards and obtain appropriate professional review.';
       const label=selectedTrack==='theory'?'Theory':'Practice',area=areaForTopic(selectedTopic),resource=areaResources[area]?.[selectedTrack]||'';
@@ -207,7 +221,7 @@
       studyLinks.replaceChildren();
       const links=selectedSection==='lecture'?(lessonLinks[selectedTopic]?.[selectedTrack]||[]):[];
       if(links.length){const title=document.createElement('strong');title.textContent='External study links';studyLinks.append(title);links.forEach(({label,url})=>{const row=document.createElement('div'),link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=label;row.append(link);studyLinks.append(row)})}
-      renderAssessment(area);
+      renderQuickCheck();renderAssessment(area);
     }
     document.querySelectorAll('[data-module]').forEach(button=>button.onclick=()=>{
       const name=button.dataset.module;
