@@ -221,7 +221,7 @@
       });
     }
     function showStudy(){
-      const lesson=lessons[selectedTopic],lecture=lesson?.[selectedTrack]||'Content coming soon. Always check the current governing standards and obtain appropriate professional review.';
+      const lesson=lessons[selectedTopic],lecture=(lesson?.[selectedTrack]||'Content coming soon. Always check the current governing standards and obtain appropriate professional review.').replaceAll('\\n','\n');
       const label=selectedTrack==='theory'?'Theory':'Practice',area=areaForTopic(selectedTopic),resource=areaResources[area]?.[selectedTrack]||'';
       const sections={
         lecture,
