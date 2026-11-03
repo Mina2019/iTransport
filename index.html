@@ -708,18 +708,7 @@ Adaptive management means changing course when evidence shows a problem. If a ne
 
 Interview takeaway
 
-In an interview, say that sustainable transportation is an evidence-based, life-cycle approach to balancing environmental, social, economic, safety, resilience, and operational outcomes. Stakeholder engagement is structured learning: identify affected groups and rights-holders, make the decision and constraints clear, collect usable evidence, compare alternatives transparently, document trade-offs, assign mitigation and maintenance responsibilities, and monitor the result.
-
-Quick check
-
-Which statement best describes meaningful transportation engagement?
-
-A. Ask the public to approve a final design after all decisions are complete.
-B. Identify affected people early, explain what is open for input, combine lived experience with technical evidence, and show how feedback affected the decision.
-C. Use only traffic-model results because comments are subjective.
-D. Select the alternative with the lowest construction cost.
-
-Answer: B. Meaningful engagement informs a real decision, reaches affected people in accessible ways, and is documented alongside technical analysis.`;
+In an interview, say that sustainable transportation is an evidence-based, life-cycle approach to balancing environmental, social, economic, safety, resilience, and operational outcomes. Stakeholder engagement is structured learning: identify affected groups and rights-holders, make the decision and constraints clear, collect usable evidence, compare alternatives transparently, document trade-offs, assign mitigation and maintenance responsibilities, and monitor the result.`;
 
     lessons['Sustainability and stakeholders'].practice=String.raw`Sustainability and stakeholders — practice
 
@@ -801,18 +790,7 @@ Publish a short follow-up report. State what improved, what did not, and what co
 
 Interview takeaway
 
-In an interview, describe sustainability practice as a disciplined project workflow: define the decision and constraints; establish a multi-user baseline; map stakeholders and rights-holders; develop understandable alternatives; compare life-cycle, safety, access, environment, resilience, cost, and equity outcomes; engage in accessible ways; explain trade-offs; deliver construction mitigation and maintenance; then monitor and adapt.
-
-Quick check
-
-Which is the best reason to include maintenance staff during concept design?
-
-A. They can approve every capital project without other review.
-B. They can identify whether drainage, snow clearing, trees, pavement markings, and specialized features can be maintained after construction.
-C. They only need to be told after the contractor has finished.
-D. Their role is limited to selecting construction materials.
-
-Answer: B. Maintenance capability is a life-cycle requirement, so it should influence the design before it is finalized.`;
+In an interview, describe sustainability practice as a disciplined project workflow: define the decision and constraints; establish a multi-user baseline; map stakeholders and rights-holders; develop understandable alternatives; compare life-cycle, safety, access, environment, resilience, cost, and equity outcomes; engage in accessible ways; explain trade-offs; deliver construction mitigation and maintenance; then monitor and adapt.`;
 
     function capLectureAtTarget(text,maxWords=2000){
       const matches=[...text.matchAll(/[A-Za-z0-9]+(?:[–-][A-Za-z0-9]+)*/g)];
@@ -918,12 +896,32 @@ Answer: B. Maintenance capability is a life-cycle requirement, so it should infl
         if(card.dataset.answered)return;card.dataset.answered='yes';answered+=1;const isCorrect=button.dataset.correct==='true';if(isCorrect)correct+=1;card.querySelectorAll('.option').forEach(option=>{option.disabled=true;if(option.dataset.correct==='true')option.classList.add('correct')});if(!isCorrect)button.classList.add('wrong');card.querySelector('.answer-note').classList.add('show');assessment.querySelector('#score').textContent=`${correct} of ${questions.length} correct · ${answered} answered`;
       }));
     }
+    const planningQuickChecks={
+      'Long-term plans and models':{
+        theory:{question:'Why should a long-term transportation plan use scenarios rather than one assumed future?',answer:'Because travel, land use, funding, technology, and demographics are uncertain, so the plan should remain useful under several plausible futures.',distractors:['Because scenarios remove the need to monitor results.','Because one scenario always guarantees the lowest cost.','Because travel models can predict the future exactly.']},
+        practice:{question:'What is the best first step when applying a long-term plan to a corridor?',answer:'Define the decision, planning horizon, objectives, constraints, and evidence needed before selecting projects.',distractors:['Choose the largest capital project immediately.','Copy another city’s project list without local review.','Wait until all funding is confirmed before identifying needs.']}},
+      'Land use':{
+        theory:{question:'How does land-use pattern affect transportation outcomes?',answer:'It affects where trips start and end, their length and timing, mode choices, and the viability of transit and active travel.',distractors:['It affects pavement thickness only.','It determines traffic volumes but never access or mode choice.','It has no relationship to transportation once roads are built.']},
+        practice:{question:'What should a land-use transportation review test first?',answer:'Whether people can safely and practically reach the site by walking, cycling, transit, deliveries, emergency vehicles, and cars.',distractors:['Whether the site has the most decorative entrance.','Whether every trip can be accommodated by free parking.','Whether a single traffic count is below a target.']}},
+      'Active transportation':{
+        theory:{question:'What is the core purpose of an active-transportation network?',answer:'To create connected, safe, comfortable, and accessible routes to everyday destinations for people walking, rolling, and cycling.',distractors:['To remove all motor-vehicle access from every corridor.','To create recreation routes only.','To add painted lines without considering crossings or maintenance.']},
+        practice:{question:'What makes an active-transportation field review useful?',answer:'Observing the actual route and its barriers, including crossings, surface, lighting, accessibility, winter conditions, and user experience.',distractors:['Reviewing only an aerial image.','Measuring vehicle delay without visiting the site.','Assuming all riders have the same confidence and ability.']}},
+      'Travel demand management':{
+        theory:{question:'What is the central purpose of travel demand management?',answer:'To improve access and system performance by influencing when, where, how, or whether people travel.',distractors:['To widen every congested road.','To penalize every person who drives.','To replace all transit and active transportation investment.']},
+        practice:{question:'What should be measured before and after a TDM pilot?',answer:'Relevant outcomes such as peak arrivals, parking use, travel reliability, participation, access, and equity effects.',distractors:['Only the number of posters distributed.','Only average vehicle speed on one day.','Only the opinion of the project sponsor.']}},
+      'Sustainability and stakeholders':{
+        theory:{question:'What makes transportation engagement meaningful?',answer:'Identify affected people early, explain what is open for input, combine lived experience with technical evidence, and show how feedback affected the decision.',distractors:['Ask the public to approve a final design after all decisions are complete.','Use only model outputs because comments are subjective.','Select the option with the lowest construction cost.']},
+        practice:{question:'Why should maintenance staff be included during concept design?',answer:'They can identify whether drainage, snow clearing, trees, markings, and specialized features can be maintained after construction.',distractors:['They can approve every capital project without other review.','They only need to be told after construction finishes.','Their role is limited to selecting materials.']}
+      }
+    };
+
     function renderQuickCheck(){
       if(selectedSection!=='lecture'){quickCheck.classList.remove('show');quickCheck.innerHTML='';return;}
       const isTheory=selectedTrack==='theory';
-      const question=isTheory?`What should guide a ${selectedTopic.toLowerCase()} decision?`:`What makes a ${selectedTopic.toLowerCase()} recommendation professionally defensible?`;
-      const answer=isTheory?'Use current governing guidance, evidence, local context, and the needs of affected users.':'Document the data and assumptions, compare feasible alternatives, and monitor the result.';
-      const distractors=isTheory?['Choose the option with the shortest calculation.','Copy a solution from an unrelated location.','Optimize only one vehicle-delay measure.']:['Use one software output without checking it.','Skip the field review to save time.','Assume the first alternative will work everywhere.'];
+      const specific=planningQuickChecks[selectedTopic]?.[selectedTrack];
+      const question=specific?.question || (isTheory?`What should guide a ${selectedTopic.toLowerCase()} decision?`:`What makes a ${selectedTopic.toLowerCase()} recommendation professionally defensible?`);
+      const answer=specific?.answer || (isTheory?'Use current governing guidance, evidence, local context, and the needs of affected users.':'Document the data and assumptions, compare feasible alternatives, and monitor the result.');
+      const distractors=specific?.distractors || (isTheory?['Choose the option with the shortest calculation.','Copy a solution from an unrelated location.','Optimize only one vehicle-delay measure.']:['Use one software output without checking it.','Skip the field review to save time.','Assume the first alternative will work everywhere.']);
       const options=[answer,...distractors].sort(()=>Math.random()-.5);
       quickCheck.classList.add('show');
       quickCheck.innerHTML=`<h4>Quick check · one question</h4><div class="question"><strong>${question}</strong>${options.map(option=>`<button class="option" type="button" data-correct="${option===answer}">${option}</button>`).join('')}<p class="answer-note">${answer}</p></div>`;
