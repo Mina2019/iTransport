@@ -1985,6 +1985,95 @@ Interview takeaway
 In an interview, explain that BRT/LRT practice is a corridor decision workflow: define the service promise; establish the baseline; compare a credible bus, BRT, and rail concept; test right-of-way, stations, capacity, operations, access, construction, equity, cost, maintenance, and land use; engage affected users; select a defensible phase; and monitor before expanding.
 `;
 
+    lessons['Transit signal priority'].theory=String.raw`Transit signal priority — theory
+
+Transit signal priority (TSP) is a set of operating and traffic-signal strategies that can reduce transit delay, improve schedule reliability, or help a transit vehicle clear a difficult intersection. It does not automatically mean that every bus receives a green light or that all other traffic must wait. Effective TSP is a coordinated system involving route design, detection, signal controllers, transit operations, pedestrian safety, traffic engineering, communications, policy, and evaluation.
+
+The purpose is to improve person movement and service reliability while maintaining safe, understandable, and acceptable intersection operation. A bus carrying many people may receive a modest time advantage that improves a corridor’s reliability, but priority must be designed so it does not create unsafe pedestrian clearance, block emergency movements, cause excessive cross-street delay, or undermine a coordinated traffic network.
+
+1. Define the problem and objective
+
+Start with evidence. Identify where transit vehicles lose time and why. Causes may include red-signal delay, long queues, poor progression, blocked stops, turning conflicts, dwell, fare payment, wheelchair boarding, traffic entering from a side street, or a downstream bottleneck. TSP can address signal delay, but it cannot fix every cause of lateness.
+
+Set a specific objective. Examples include reducing average red delay, reducing travel-time variability, improving on-time performance, protecting a timed transfer, helping a bus clear a queue, or maintaining a reliable connection for an accessible service. Define the target period, route, intersection, direction, and user groups. “Make transit faster” is too broad to design or evaluate.
+
+Collect a baseline: transit arrival and departure time, dwell, signal phase, queue length, traffic volumes, pedestrian crossings, cross-street delay, turning movements, emergency activity, and near-miss or safety observations. Separate average performance from worst-period performance. A bus that is usually on time but consistently misses a transfer at one intersection needs a different treatment from a route with congestion along its entire length.
+
+2. Priority strategies
+
+Green extension holds a green phase for a short additional period so an approaching transit vehicle can pass instead of stopping. It is useful when the vehicle is close to the end of green and the extension is within an acceptable limit. The benefit may be lost if the bus is too far away or the next intersection remains a bottleneck.
+
+Red truncation, or early green, shortens a conflicting phase to serve a transit vehicle sooner. It can reduce transit delay but may increase delay for pedestrians, cyclists, or cross-street traffic. The controller must preserve minimum pedestrian clearance, yellow and all-red intervals, safety intergreen, and any protected movement requirements.
+
+Phase insertion adds a special transit movement or phase where the signal plan and intersection geometry support it. It may serve a bus turn, queue jump, or transit movement that would otherwise wait through a long cycle. It is more complex than a simple extension and requires careful conflict and clearance analysis.
+
+Queue jumps provide a short transit lane and a special signal phase or early release that lets a bus move ahead of a general-traffic queue. They can be effective where a bus approaches a congested intersection from a curb lane, but need safe merge, bicycle, pedestrian, and right-turn treatment. A queue jump should be designed with the street cross-section and stop location, not added as an isolated signal feature.
+
+Conditional priority can be based on lateness, passenger load, headway, route type, or the number of people on board. A bus running early may not need priority; a bus running late or carrying a full load may justify a stronger request. Conditional logic can protect general traffic and reduce unnecessary signal changes, but it requires accurate and reliable transit data.
+
+3. Detection and communications
+
+TSP needs a way to know that an eligible transit vehicle is approaching. Detection may use radio, GPS or automatic vehicle location, optical systems, loop or wireless equipment, or communication between the vehicle and signal controller. The system must identify the route, direction, lane, estimated arrival, eligibility, and request timing without creating false calls.
+
+Detection accuracy matters. A request that arrives too late cannot be served. A request that remains active after a bus has passed can disrupt the next cycles. System design should define approach zones, request duration, cancellation, priority level, multiple buses, vehicles travelling in opposite directions, and communication failure. Protect the system from unauthorized or erroneous requests through appropriate security and operational controls.
+
+The controller and transit-management system need compatible interfaces, time synchronization, monitoring, and a clear maintenance responsibility. A priority request should be logged with the vehicle, intersection, time, requested action, action granted, and result. These records support troubleshooting and performance evaluation.
+
+4. Signal operations and traffic trade-offs
+
+TSP is an intersection-management decision. Review cycle length, splits, offsets, coordination, pedestrian phases, turn phases, transit stop position, storage, queues, and adjacent intersections. A priority action at one signal can move a queue to the next signal or reduce progression for other traffic. Model and observe the corridor, not just the intersection in isolation.
+
+Protect cross-street and active-mode users. A shortened phase must not reduce required pedestrian clearance. A green extension must not create an unsafe conflict with a pedestrian already in the crossing. A queue jump must not force a cyclist into a turning vehicle or create a confusing bus merge. Where a transit stop is near the intersection, decide whether the vehicle should stop before or after the signal based on dwell, sight line, queue, pedestrian access, and priority logic.
+
+Emergency services may receive higher priority or pre-emption under separate policy. TSP should not interfere with emergency response, rail crossing safety, or other legally protected operations. Coordinate the hierarchy and controller logic so simultaneous requests are handled consistently and recorded.
+
+5. Transit reliability and passenger benefit
+
+The passenger benefit is usually greater when priority reduces variability than when it reduces a small average delay. A bus that arrives three minutes late can cause a missed transfer, a longer wait, and a chain of delays. TSP can help protect headway and transfer reliability, particularly on frequent routes.
+
+However, signal priority cannot solve dwell, overcrowding, poor stop access, or a route that is scheduled unrealistically. Check whether the priority request should be paired with stop consolidation, all-door boarding, off-board fare payment, curb management, bus lanes, accessible boarding, or a schedule revision. Do not claim that a green extension has improved the passenger journey if the bus remains blocked at the next stop.
+
+Use person-throughput measures where appropriate. A bus carrying many people may justify a small cross-street delay if the policy and safety assessment support it. Compare person delay, vehicle delay, pedestrian delay, transit reliability, and equity rather than using vehicle level of service alone.
+
+6. Equity, accessibility, and user experience
+
+Priority policies should consider who uses the route and who experiences the effect. Frequent transit may serve people without cars, lower-income workers, students, older adults, people with disabilities, and shift workers. Reliable service can be a major access benefit. Cross-street users may also include pedestrians, cyclists, schoolchildren, freight, and emergency services whose delay or safety must be considered.
+
+Accessibility is part of the signal operation. Preserve pedestrian clearance, audible and visual indications where required, accessible push-button access, clear curb ramps, boarding areas, and safe crossings. A priority plan that improves bus time by reducing crossing time for a person with a mobility device is not acceptable. Review actual walking speeds and crossing patterns where the context requires it.
+
+Communicate the system clearly to operators and the public. Operators need to know how and when to request priority, what happens if it is denied, and how to report a problem. The public needs understandable information if signal timing, lanes, or stops change. Avoid promising that every bus will always receive a green light; explain that priority is conditional and safety-controlled.
+
+7. Corridor and network coordination
+
+TSP is most effective when coordinated across a route. If one signal grants priority but the next signal causes a long queue, the route may gain little. Examine intersections in sequence, stop locations, route direction, offset, bus bunching, cross-street demand, and downstream storage. A priority plan may need different settings by time of day, route direction, event, or congestion condition.
+
+At a transfer point, priority can protect a timed connection but may also make buses bunch if one vehicle is prioritized while another follows closely. Conditional priority based on lateness or headway can help. On a high-frequency route, preserving even spacing may be more valuable than giving every vehicle an individual advantage.
+
+Coordinate with traffic-management centres, transit dispatch, maintenance, construction, emergency services, and adjacent jurisdictions. Construction or an event can change queues and detection. A system that is not updated when geometry or signal phasing changes may grant priority at the wrong time.
+
+8. Implementation and maintenance
+
+Implementation begins with a concept of operations. State the eligible vehicles, request conditions, priority hierarchy, maximum extension or truncation, pedestrian and safety constraints, failure modes, manual override, monitoring, and approval process. Then prepare controller logic, detection plans, communications, cabinet and power requirements, signs or markings, field test procedures, operator training, and public notice.
+
+Maintenance must include detection equipment, communications, controller software, signal heads, transit vehicle equipment, time synchronization, logs, and backup procedures. Assign ownership and response time. A failed detector can make a route appear unreliable; a stuck request can disrupt an entire intersection. Test after signal timing changes, construction, firmware updates, or route changes.
+
+9. Evaluation and adaptive management
+
+Set a before-and-after evaluation plan. Measures may include transit red delay, travel-time average and variability, on-time performance, headway regularity, missed transfers, passenger load, cross-street delay, pedestrian clearance, queue length, turning conflicts, complaints, emergency response, and system availability. Compare priority requests with granted actions and examine whether the intended vehicle actually received a benefit.
+
+Use a pilot where conditions are uncertain. Adjust extension limits, conditional rules, stop location, or coordination based on evidence. If transit benefit is small but cross-street delay is high, revise the strategy. If reliability improves but safety concerns arise, address geometry or access rather than simply increasing priority. Record decisions and communicate results.
+
+10. Professional TSP review
+
+Before activation, conduct an independent review of the concept of operations, controller logic, detector zones, communications, signal phasing, pedestrian clearance, crossing geometry, queue storage, transit stop position, emergency hierarchy, construction conditions, maintenance responsibility, and failure response. Test a bus approaching early, on time, late, in a platoon, from the wrong lane, with a communication failure, and during a conflicting pedestrian or emergency request. Confirm that the system fails safely rather than leaving a signal in an unexpected state.
+
+Use field observations during daytime, darkness, peak demand, and representative weather. Verify that the requested action actually improves the transit movement and does not simply move the queue. Keep logs of requests, grants, denials, response time, safety observations, complaints, and corrective work. A well-managed TSP system is a modest operational intervention with measurable benefits, not an invisible software feature assumed to work indefinitely. Review the results with transit, traffic, accessibility, emergency, maintenance, and public-communication staff before making the settings permanent, and document the final operating decision and future review date for future operations and audits.
+
+Interview takeaway
+
+In an interview, explain that TSP is a conditional, safety-controlled operating strategy. Define the reliability problem, collect signal and transit data, select the appropriate priority type, protect pedestrians and cross traffic, coordinate the corridor, design detection and controller logic, assign maintenance, and evaluate person movement and reliability rather than assuming every request deserves priority.
+`;
+
     function capLectureAtTarget(text,maxWords=2000){
       const matches=[...text.matchAll(/[A-Za-z0-9]+(?:[–-][A-Za-z0-9]+)*/g)];
       if(matches.length<=maxWords)return text;
@@ -2111,6 +2200,9 @@ In an interview, explain that BRT/LRT practice is a corridor decision workflow: 
       'BRT and LRT':{
         theory:{question:'How should a BRT or LRT decision begin?',answer:'Begin with the corridor problem and service promise, then compare right-of-way, stations, operations, capacity, access, cost, risk, and life-cycle value.',distractors:['Choose the most prestigious vehicle technology first.','Compare vehicles only by seats per vehicle.','Assume a rail or bus label guarantees reliability.']},
         practice:{question:'What makes a rapid-transit concept ready for review?',answer:'It connects a feasible operating plan with right-of-way, stations, access, transfers, construction, maintenance, funding, and measurable performance targets.',distractors:['It contains a vehicle image and a route map only.','It ignores emergency and maintenance access.','It relies on one optimistic ridership forecast.']}},
+      'Transit signal priority':{
+        theory:{question:'What is the purpose of transit signal priority?',answer:'To reduce transit delay or variability while preserving safe, coordinated operation for pedestrians, cross traffic, emergency services, and the wider network.',distractors:['Give every bus an unconditional green light.','Replace the need for reliable schedules and stop access.','Prioritize vehicle delay over all other users.']},
+        practice:{question:'What should a TSP pilot measure?',answer:'Transit delay and reliability, requests and grants, cross-street and pedestrian effects, queues, safety, system availability, and passenger outcomes.',distractors:['Only the number of priority requests.','Only average vehicle speed at one intersection.','Whether the controller software was installed.']}},
       'Long-term plans and models':{
         theory:{question:'Why should a long-term transportation plan use scenarios rather than one assumed future?',answer:'Because travel, land use, funding, technology, and demographics are uncertain, so the plan should remain useful under several plausible futures.',distractors:['Because scenarios remove the need to monitor results.','Because one scenario always guarantees the lowest cost.','Because travel models can predict the future exactly.']},
         practice:{question:'What is the best first step when applying a long-term plan to a corridor?',answer:'Define the decision, planning horizon, objectives, constraints, and evidence needed before selecting projects.',distractors:['Choose the largest capital project immediately.','Copy another city’s project list without local review.','Wait until all funding is confirmed before identifying needs.']}},
