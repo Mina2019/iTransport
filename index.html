@@ -3383,6 +3383,107 @@ Interview takeaway
 Explain performance models as decision support: define the question, build a reliable data foundation, choose an appropriate model, measure condition and service, calibrate and validate locally, represent uncertainty, test treatment effects, compare life-cycle scenarios, consider networks and equity, govern versions, and learn from actual performance. A responsible model makes risks and trade-offs clearer; it never removes the need for inspection, engineering judgment, and accountability.
 `;
 
+    lessons['Performance models'].practice=String.raw`Performance Models — practice
+
+Worked project: North District pavement-program model
+
+The city manages 160 kilometres of pavement divided into 420 sections. The network includes residential streets, bus corridors, industrial routes, school access, an emergency hospital route, and a rural connection. Condition surveys have been collected for six years, but the method changed two years ago. Treatment history is incomplete, traffic data are available for only some sections, and the budget office wants a five-year program. The team must build a useful performance model without pretending that the data are perfect.
+
+1. Define the decision
+
+The decision is how to allocate a constrained five-year budget among preservation, rehabilitation, reconstruction, drainage, and monitoring so that the network provides acceptable service and critical routes are protected. The model will estimate condition ranges, treatment windows, risk, cost, backlog, and network outcomes. It will not approve a final pavement structure, replace a geotechnical investigation, or override an urgent safety decision.
+
+Set the base year, forecast years, reporting units, budget scenarios, service objectives, and decision audience. The city wants a central budget, a reduced budget, and an enhanced budget. It also wants to know what happens if heavy-vehicle traffic grows faster than expected, if treatment life is shorter, and if a wet climate increases deterioration. Write these questions before selecting formulas.
+
+2. Prepare the inventory
+
+Create one record for each pavement section with a stable identifier, limits, length, lanes, surface type, structure where known, functional class, traffic, bus route, emergency role, drainage, age, treatments, condition observations, cost, and data confidence. Link adjacent sections, routes, bridges, schools, hospitals, industrial facilities, and planned development. Identify sections that are not comparable because of unusual loading, construction, or measurement.
+
+Reconcile the GIS layer, inspection database, work orders, project records, and finance system. Remove duplicate sections and resolve changed limits. Mark unknown age, estimated treatment date, missing traffic, and condition data affected by a method change. Do not fill every blank with an average without recording the assumption. Create a data-quality table showing completeness, source, date, and owner for each important field.
+
+3. Harmonize condition data
+
+The first four years used a manual condition score and the last two used an automated survey with roughness, rutting, and cracking. Compare overlapping sections where both methods were applied. Determine whether a conversion, recalibration, or separate model is needed. A sudden network-wide improvement after the method change may be a measurement effect rather than a physical improvement.
+
+Define condition bands and their meaning. For example, good may support routine monitoring, fair may require preservation planning, poor may require rehabilitation investigation, and very poor may require urgent structural or safety review. Keep the individual distress measures available so an average score does not hide deep rutting, a drainage failure, or an accessibility issue.
+
+4. Segment the network
+
+Group sections with similar behaviour and decision needs: residential asphalt, bus corridor asphalt, industrial heavy-load pavement, rural pavement, and special structures. Separate sections with known weak subgrade, poor drainage, major utility work, or unusual climate exposure. Segmentation improves model relevance and prevents a single average deterioration curve from being applied to every facility.
+
+Use enough detail to support decisions, but do not create tiny segments that cannot be inspected, costed, or managed. If a treatment will be delivered as a corridor project, record the individual sections and the project relationship. Network models should connect facility-level evidence to program-level decisions.
+
+5. Choose the modelling approach
+
+For North District, use a condition-transition or deterioration model for network programming, supplemented by engineering rules and targeted models for critical sections. The model can estimate the probability of moving from good to fair, fair to poor, or poor to very poor each year, with adjustments for traffic, drainage, climate, treatment, and facility class. A more detailed mechanistic review can be triggered for a critical or unusual section.
+
+Document the model version, parameters, equations or transition rules, units, treatment assumptions, and limitations. Choose a simple model that staff can explain and maintain. A complex model with unreliable inputs can be less useful than a transparent model with a clear uncertainty range.
+
+6. Calibrate with local evidence
+
+Use historical condition and treatment records to estimate deterioration by segment. Compare sections with similar age, traffic, drainage, and materials. Exclude or separately review periods affected by a major flood, unusual construction, a survey change, or a treatment not represented in the model. Check whether the model predicts the observed distribution rather than only the average.
+
+Use part of the history for calibration and another period or group of sections for validation. Ask maintenance and inspection staff whether predicted failures match field experience. If bus corridors deteriorate faster than residential streets in the data, examine heavy loading, braking, stop locations, and maintenance before simply assigning a larger deterioration rate.
+
+7. Represent treatment effects
+
+Define each treatment by trigger, cost, construction disruption, expected life extension, condition change, remaining risk, and maintenance requirement. Crack sealing may slow water entry but not restore structure. A surface treatment may improve condition while leaving weak subgrade. Rehabilitation may reset the condition but require a closure. Drainage work may reduce future deterioration even if the immediate condition score changes slowly.
+
+Use treatment rules that consider distress, traffic, climate, drainage, service, and constructability. Apply a treatment only when the mechanism and conditions support it. Record the treatment date and actual result so the model can compare predicted and observed response. If a treatment fails early, investigate the cause before changing every treatment curve.
+
+8. Run budget scenarios
+
+Prepare three scenarios. The reduced budget protects emergency and high-risk routes but increases deferred work. The central budget funds preservation, selected rehabilitation, drainage, and a monitoring reserve. The enhanced budget addresses more backlog and may reduce future user disruption. For each scenario, show annual cost, treatment count, condition distribution, critical-route risk, backlog, user impact, and remaining uncertainty.
+
+Test a high-heavy-vehicle case, a shorter treatment-life case, a wet-climate case, and a delayed-project case. Identify which recommendations remain stable. If the emergency route is protected in every scenario but a group of lower-volume roads declines under the reduced budget, state that trade-off plainly. Do not present the enhanced scenario as automatically best if its delivery capacity, construction disruption, or funding is unrealistic.
+
+9. Include risk and equity
+
+Add criticality to the model or decision layer. A hospital route, school access, transit corridor, bridge approach, or accessible connection may need a higher service objective than an equivalent low-use section. Include redundancy, detour length, emergency access, freight, transit, safety, and consequence of failure.
+
+Review whether the data represent every neighbourhood. Complaint volume, traffic counts, and automated surveys may underrepresent people with disabilities, people without digital access, rural users, and communities that have historically received less investment. Combine the model with accessibility reviews, community information, operator knowledge, and maintenance evidence. Report who benefits, who experiences construction, and who bears deferred risk.
+
+10. Validate the results
+
+Select a sample of sections from each condition band, facility class, budget scenario, and unusual-risk group. Compare predicted condition with field observations and recent inspections. Check whether the model identifies known failed or successful sections. Review false positives, false negatives, outliers, and cases where treatment timing is operationally impossible.
+
+Hold a validation workshop with pavement engineers, inspectors, maintenance supervisors, traffic and transit operations, finance, accessibility staff, and project delivery. Ask each group what the model gets right, what it misses, and what evidence would change the result. Record the response and revise parameters or decision rules only with an accountable explanation.
+
+11. Create the program and work orders
+
+Convert the selected scenario into a five-year program. Each project should identify sections, treatment, cost range, delivery year, dependencies, traffic accommodation, risk if deferred, expected performance, and monitoring. Group compatible work with drainage, utilities, transit, sidewalks, and development, but preserve the ability to deliver urgent work separately.
+
+Link the program to work orders and project records. When work is completed, capture actual limits, treatment, materials, cost, construction quality, weather, defects, warranty, and condition. This closes the loop between model assumption and field result. A program that cannot return actual performance data will become less reliable every year.
+
+12. Communicate the decision
+
+Prepare a one-page decision summary with the question, baseline, scenarios, recommended budget, protected facilities, deferred work, condition trend, risk, uncertainty, and next review. Explain that a forecast is a range, not a guarantee. Show which inspection, traffic, climate, funding, or treatment result would trigger a change.
+
+Prepare a technical appendix with data sources, segmentation, calibration, validation, treatment rules, sensitivity tests, version, limitations, and approvals. Keep personal, security-sensitive, and commercially confidential information protected. Use a public summary that explains service and trade-offs without exposing operational vulnerabilities.
+
+13. Monitor and update
+
+Review the program quarterly and after each survey, major treatment, unusual weather event, traffic change, or emergency. Compare predicted and actual condition, cost, treatment life, user delay, safety, accessibility, and maintenance. Update the model when evidence is sufficient; do not chase every random fluctuation. Preserve previous versions so decisions can be reconstructed.
+
+Practice checklist
+
+For any performance-model exercise, ask: What decision is being made? Are the records complete and comparable? Are facilities segmented appropriately? Are condition and service measures defined? Are treatments linked to failure mechanisms? Was the model calibrated and validated locally? Are budget, traffic, climate, equity, and network scenarios tested? Is uncertainty visible? Can the result be turned into a deliverable program and work order? Who reviews overrides? What will be measured after implementation?
+
+14. Worked interpretation for North District
+
+Suppose the central scenario preserves most good residential sections, rehabilitates selected bus and industrial corridors, replaces two critical drainage sections, and keeps an emergency reserve. The reduced scenario postpones several fair roads and increases the probability of poor condition, but protects the hospital route and accessible transit connections. The enhanced scenario addresses more backlog but requires additional crews, traffic control, and funding. The recommendation should not simply say that the enhanced scenario produces the best average condition. It should explain whether the city can deliver it, what users experience during construction, and which risks the central scenario accepts.
+
+If the model predicts that a fair road will remain fair for five years, verify the drainage, traffic, and treatment history. If field staff report repeated spring failures, use that evidence to trigger a review. If a condition score improves after a survey method change, do not treat the improvement as a treatment benefit until the methods are harmonized. If a treatment performs better than expected, record the circumstances and test whether the result transfers to comparable sections.
+
+15. Maintain model governance
+
+Name a model owner, data owners, reviewers, and approval authority. Store the model version, parameters, scripts, input extract, output, decision record, and approvals together. Keep prior versions so the agency can explain why a budget or treatment list changed. Reassess the model after major construction, a new inspection technology, climate or traffic change, a treatment failure, or a revised service standard. Governance protects the credibility of the model when staff, contractors, software, or leadership changes. It also makes the next planning cycle faster because evidence and decisions remain organized.
+
+Interview takeaway
+
+Describe practice as a transparent cycle: define the decision, prepare and quality-check data, segment facilities, choose and document the model, calibrate and validate, test treatment and budget scenarios, include risk and equity, create an implementable program, communicate uncertainty, and compare predicted with actual performance. The model is useful when it improves a real decision and becomes more reliable through disciplined feedback.
+`;
+
     function capLectureAtTarget(text,maxWords=2000){
       const matches=[...text.matchAll(/[A-Za-z0-9]+(?:[–-][A-Za-z0-9]+)*/g)];
       if(matches.length<=maxWords)return text;
@@ -3403,6 +3504,7 @@ Explain performance models as decision support: define the question, build a rel
     lessons['Materials'].theory=capLectureAtTarget(lessons['Materials'].theory);
     lessons['Materials'].practice=capLectureAtTarget(lessons['Materials'].practice);
     lessons['Performance models'].theory=capLectureAtTarget(lessons['Performance models'].theory);
+    lessons['Performance models'].practice=capLectureAtTarget(lessons['Performance models'].practice);
     lessons['Land use'].theory=capLectureAtTarget(lessons['Land use'].theory);
     lessons['Land use'].practice=capLectureAtTarget(lessons['Land use'].practice);
     lessons['Active transportation'].theory=capLectureAtTarget(lessons['Active transportation'].theory);
