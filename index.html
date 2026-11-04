@@ -27,7 +27,7 @@
     <section class="lesson" data-lesson="traffic"><h2>Traffic</h2><p>Analyze how people and vehicles move, and improve the network safely.</p><p><b>Two-hour study unit:</b> work through the five Theory lessons first (about 12 minutes each), then the five Practice lessons (about 12 minutes each). The Quiz, Test, and Final Exam are separate assessments.</p><div class="topics"><button class="topic">Capacity and software</button><button class="topic">Signal timing</button><button class="topic">Road safety</button><button class="topic">Speed management</button><button class="topic">TIAs and operations</button></div></section>
     <section class="lesson" data-lesson="public"><h2>Public Transit</h2><p>Plan reliable, useful transit that connects people to destinations.</p><div class="topics"><button class="topic">Routes</button><button class="topic">BRT and LRT</button><button class="topic">Transit signal priority</button><button class="topic">Demand</button><button class="topic">Stations</button></div></section>
     <section class="lesson" data-lesson="planning"><h2>Planning</h2><p>Link land use, travel choices, long-term investments, and community goals.</p><div class="topics"><button class="topic">Long-term plans and models</button><button class="topic">Land use</button><button class="topic">Active transportation</button><button class="topic">Travel demand management</button><button class="topic">Sustainability and stakeholders</button></div></section>
-    <section class="lesson" data-lesson="pavement"><h2>Pavement</h2><p>Build and manage pavement assets for long-term performance and value.</p><div class="topics"><button class="topic">Pavement design</button><button class="topic">Asset management</button><button class="topic">Maintenance</button><button class="topic">Materials</button><button class="topic">Performance models</button></div></section>
+    <section class="lesson" data-lesson="pavement"><h2>Pavement</h2><p>Build and manage pavement assets for long-term performance and value.</p><div class="topics"><button class="topic">Pavement design</button><button class="topic">Facilities Management</button><button class="topic">Maintenance</button><button class="topic">Materials</button><button class="topic">Performance models</button></div></section>
 
     <section id="study" class="study" aria-live="polite"><h3 id="studyTitle">Geometric design</h3><p>Choose a learning track and course section.</p><div class="study-actions"><button id="theory" class="active">Theory</button><button id="practice">Practice</button></div><div class="course-actions"><button data-section="lecture" class="active">Lecture</button><button data-section="homework">Homework</button><button data-section="quiz">Quiz · 5 Qs</button><button data-section="test">Test · 20 Qs</button><button data-section="final">Final exam · 50 Qs</button></div><p id="studyCopy" class="study-copy">Learn the principles, terminology, design criteria, and calculations behind geometric design.</p><div id="studyLinks" class="study-links"></div><div id="quickCheck" class="assessment"></div><div id="assessment" class="assessment"></div></section>
 
@@ -2699,6 +2699,9 @@ Interview takeaway
 Describe pavement-design practice as a controlled workflow: define the road function, collect traffic and condition evidence, investigate the subgrade, analyze water and climate, apply the approved method, compare feasible structures, detail special locations, stage construction, verify quality, and monitor performance. The recommendation should explain not only what to build, but why it will remain buildable, maintainable, accessible, and defensible over its life.
 `;
 
+    lessons['Facilities Management']=lessons['Asset management'];
+    lessons['Facilities Management'].theory=lessons['Facilities Management'].theory.replace('Asset management — lecture','Facilities Management — lecture');
+    lessons['Facilities Management'].practice=lessons['Facilities Management'].practice.replace('Asset management — practice','Facilities Management — practice');
     function capLectureAtTarget(text,maxWords=2000){
       const matches=[...text.matchAll(/[A-Za-z0-9]+(?:[–-][A-Za-z0-9]+)*/g)];
       if(matches.length<=maxWords)return text;
@@ -2727,7 +2730,7 @@ Describe pavement-design practice as a controlled workflow: define the road func
       Traffic:['Capacity and software','Signal timing','Road safety','Speed management','TIAs and operations'],
       'Public Transit':['Routes','BRT and LRT','Transit signal priority','Demand','Stations'],
       Planning:['Long-term plans and models','Land use','Active transportation','Travel demand management','Sustainability and stakeholders'],
-      Pavement:['Pavement design','Asset management','Maintenance','Materials','Performance models']
+      Pavement:['Pavement design','Facilities Management','Maintenance','Materials','Performance models']
     };
     const areaResources={
       Design:{theory:'Core theory book — Traffic and Highway Engineering, Nicholas J. Garber and Lester A. Hoel.',practice:'Practice library — TAC Geometric Design Guide for Canadian Roads; MUTCDC; and the applicable municipal design standards.'},
