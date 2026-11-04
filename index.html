@@ -2074,6 +2074,99 @@ Interview takeaway
 In an interview, explain that TSP is a conditional, safety-controlled operating strategy. Define the reliability problem, collect signal and transit data, select the appropriate priority type, protect pedestrians and cross traffic, coordinate the corridor, design detection and controller logic, assign maintenance, and evaluate person movement and reliability rather than assuming every request deserves priority.
 `;
 
+    lessons['Transit signal priority'].practice=String.raw`Transit signal priority — practice
+
+This worked example shows how to diagnose a transit-delay problem and develop a safe transit signal priority (TSP) pilot. The corridor and figures are illustrative. A real project requires current traffic and transit observations, signal standards, controller compatibility, accessibility and pedestrian review, emergency-services coordination, communications and cybersecurity controls, maintenance planning, and professional approval.
+
+Project: Central Avenue reliability pilot
+
+Central Avenue is a six-kilometre urban transit corridor serving a hospital, college, employment district, and several apartment neighbourhoods. Route 12 buses operate every 10 minutes during the weekday peak. The route is scheduled to take 28 minutes from end to end, but observed trips vary from 25 to 40 minutes. Passengers frequently miss transfers at the east terminal, and the agency receives complaints that one bus arrives late while the following bus arrives close behind.
+
+The city wants to test TSP at six signalized intersections without creating unsafe pedestrian conditions or excessive cross-street delay. The pilot must identify where the actual delay occurs, select an appropriate priority strategy, define safe controller logic, and evaluate the result.
+
+1. Define the problem and objectives
+
+Write a clear objective: “Improve Route 12 travel-time reliability and protect important transfers on Central Avenue while maintaining pedestrian clearance, emergency operations, acceptable cross-street performance, and safe signal coordination.” This objective does not promise that every bus will receive priority or that the route will become free of congestion.
+
+Define the pilot limits. It will operate for six months during weekday peak periods, with a separate review for evenings and weekends. It will apply only to eligible Route 12 vehicles approaching the six selected intersections. It will not override emergency pre-emption, railway protection, minimum pedestrian clearance, or a signal-safety intergreen. The traffic and transit agencies will share responsibility for implementation and monitoring.
+
+2. Establish the baseline
+
+Collect automatic vehicle-location data, signal phase and timing, bus arrival and departure, dwell, passenger load, queue length, traffic volumes, turning movements, pedestrian crossing, bicycle movements, emergency activity, and incidents. Conduct field observations in both directions during morning and afternoon peaks, midday, darkness, and representative weather. Interview operators and dispatch staff about recurring delay, blocked stops, difficult merges, and bunching.
+
+The baseline shows that buses lose an average of 35 seconds at red signals, but the largest variability occurs at two intersections where a left-turn queue blocks the curb lane. A stop immediately upstream of one signal creates long dwell when several passengers board. The east terminal transfer is missed mainly when the first bus is late by more than four minutes. A simple green extension at every intersection would not solve all these problems.
+
+Separate delay into signal delay, stop dwell, traffic queue, boarding, incident, and recovery effects. TSP can address a portion of signal delay and help a bus clear a queue, but stop relocation, curb management, boarding improvements, or schedule changes may be needed for the other causes.
+
+3. Define priority requests and eligibility
+
+The pilot makes a request when an eligible Route 12 bus is within the detection zone and meets a condition. The base rule is conditional priority for a bus that is at least two minutes late or is approaching a protected transfer window. A bus running early does not receive the full priority action unless the operations plan identifies a safety or network reason.
+
+Define vehicle identification, direction, route, estimated arrival, request time, cancellation, and expiration. A request should be removed if the bus changes route, leaves the approach, loses communication, or passes the intersection. Test two buses approaching together and buses travelling in opposite directions. Establish a priority hierarchy if a bus request overlaps with emergency pre-emption, railway protection, pedestrian recall, or another transit request.
+
+4. Select the strategy at each intersection
+
+Intersection 1 has a bus stop far upstream and a predictable red delay. A limited green extension can allow a bus that is close to the stop line to clear the intersection. The extension is capped so it does not create an unsafe phase transition or disrupt the next coordinated intersection excessively.
+
+Intersection 2 has a blocked curb lane and a bus stop immediately before the signal. Moving the stop to the far side and improving curb management may provide more benefit than signal priority alone. A limited early-green request is tested only after the bus has completed boarding and detection confirms that it is approaching.
+
+Intersection 3 has a long cross-street pedestrian phase. Red truncation is not permitted if it would reduce required clearance. The team instead tests a queue-jump lane and a short transit phase with a pedestrian-safe sequence. The priority request can be denied when a pedestrian phase is active.
+
+Intersection 4 is near the hospital emergency entrance. Emergency pre-emption has priority. TSP is limited to a green extension when it does not conflict with emergency operation, and the hospital receives a contact procedure for reporting signal or access issues.
+
+Intersection 5 is part of a coordinated traffic progression. A priority request may disturb the offset and create a queue at Intersection 6. The team tests conditional priority and a corridor-level offset adjustment rather than treating the signal independently.
+
+Intersection 6 is near the east terminal. TSP is evaluated for transfer protection, but the terminal schedule and recovery time are also reviewed. Priority cannot compensate for an unrealistic running time or inadequate layover.
+
+5. Design detection and communications
+
+Select detection technology compatible with the vehicle and controller. The automatic vehicle-location system can provide route, direction, position, and estimated arrival through an authorized communications link. The detection zone must be long enough for a request to be received and assessed, but not so long that the controller acts before the bus position is reliable.
+
+Define the message and log fields: vehicle identifier, route, direction, intersection, request time, estimated arrival, lateness, priority type, action granted or denied, denial reason, signal response, and completion time. Synchronize clocks between transit and traffic systems. Protect the interface from unauthorized requests and define who can change eligibility, timing, or software.
+
+Test communication failure. If the signal cannot verify a vehicle or request, it should return to the approved base plan. A failed detector must not leave a permanent priority call. Maintenance staff need tools, diagnostics, spare equipment, and a response standard for a failed detector, controller interface, antenna, power supply, or vehicle device.
+
+6. Check pedestrian, bicycle, and traffic safety
+
+Review every priority action against minimum pedestrian clearance, yellow and all-red intervals, protected turns, bicycle movements, downstream queues, and visibility. Observe actual crossing behaviour rather than relying only on a phase chart. A person who begins crossing just before a shortened phase must still have enough time to reach a safe area.
+
+At the queue-jump location, draw the bus, bicycle, pedestrian, and right-turn paths. Provide a clear merge or priority treatment. If a bus leaves a curb lane and crosses a cycle facility to enter a queue jump, the conflict must be designed and communicated. If a stop is moved, provide an accessible path and safe crossing.
+
+Check cross-street delay and queue storage. The goal is not to eliminate all delay for transit at the expense of blocking a driveway, railway, emergency access, or upstream intersection. Use person delay and safety alongside vehicle delay. A bus carrying many passengers may justify a modest delay trade-off, but the policy and evidence must support it.
+
+7. Build the pilot and operating procedure
+
+Prepare a concept of operations. State eligible vehicles, request conditions, priority limits, phase rules, conflict hierarchy, pedestrian safeguards, manual override, communication failure, event and construction modes, operator training, dispatch monitoring, public information, and approval responsibilities.
+
+Install or configure the system in stages. Bench-test the interface, controller logic, request cancellation, denial conditions, and logs. Conduct a closed-course or off-peak test before live operation. Then operate one intersection, observe it, and add the others after the first results are acceptable. Do not activate six locations simultaneously without a way to isolate a fault.
+
+Brief operators and dispatchers. Explain when a request is automatic, what the driver should do, how a bus bunch affects priority, and how to report a failure. Train traffic operations staff to review logs and respond to a stuck call. Notify emergency services, transit users, adjacent agencies, and the public that signal operation may change within defined safety limits.
+
+8. Evaluate the pilot
+
+Use a before-and-after design with comparable periods and, where possible, a comparison route or intersection. Measure Route 12 average and 95th-percentile travel time, red-signal delay, variability, on-time performance, headway regularity, missed transfers, dwell, queue length, cross-street delay, pedestrian clearance, bicycle conflicts, emergency response, complaints, request rate, grant rate, denial reason, system availability, and maintenance response.
+
+Interpret results carefully. If red delay falls but end-to-end variability does not, the main problem may be stop dwell or traffic queues. If buses improve but bunching increases, adjust conditional rules or headway management. If cross-street queues grow at one intersection, change the extension limit or coordination. If pedestrians report reduced crossing comfort, investigate timing and geometry before continuing the setting.
+
+9. Decide what happens next
+
+At the end of six months, prepare a results report. Recommend continuation, revision, expansion, or discontinuation for each intersection. Document the benefit, cost, safety result, operating effect, equity implications, unresolved issue, responsible owner, and next review date. If the pilot supports corridor expansion, identify the next locations and infrastructure changes. If it does not, explain what was learned and which non-signal measures should be pursued instead.
+
+10. Professional field validation
+
+Treat the pilot as a controlled operational change, not merely a technology installation. Its safety case and accountability must remain clear after the original project team moves on.
+
+The final review is conducted in the field, not only in a controller database. Observe a bus approaching early, on time, and late; a bus following another bus; a pedestrian beginning to cross; a cyclist travelling beside the bus; a truck blocking the curb lane; an emergency vehicle requesting priority; and a bus operating during darkness or poor weather. Confirm that the signal action is understandable, the bus can use the receiving lane, the downstream queue does not block another movement, and the request expires correctly.
+
+Compare the signal log with video or field notes where permitted by the project’s privacy procedures. A granted request is not necessarily a successful request: the bus may still stop for boarding, face a blocked lane, or lose the benefit at the next intersection. Record the passenger result and network effect. If the pilot requires repeated manual intervention, redesign the operating rule or address the underlying street problem rather than treating staff workarounds as a permanent solution.
+
+Keep a controlled change record for timing, software, detection, priority limits, and emergency settings. Every change should identify the reason, approver, test, date, and expected effect. This provides traceability when traffic conditions, route patterns, construction, signal equipment, or policy change. It also lets future staff distinguish a deliberate operating decision from an emergency workaround and repeat a successful treatment at another intersection without copying hidden assumptions. The record should remain linked to the route’s reliability targets, pedestrian-safety requirements, accessibility obligations, emergency hierarchy, public reporting commitments, and future maintenance budget.
+
+Interview takeaway
+
+In an interview, describe TSP practice as an evidence-based pilot: diagnose the delay; define eligibility and objectives; select a strategy at each intersection; design detection and safe controller logic; coordinate traffic, transit, pedestrians, bicycles, emergency services, and maintenance; test in stages; measure passenger and network outcomes; and adapt or stop the program based on evidence.
+`;
+
     function capLectureAtTarget(text,maxWords=2000){
       const matches=[...text.matchAll(/[A-Za-z0-9]+(?:[–-][A-Za-z0-9]+)*/g)];
       if(matches.length<=maxWords)return text;
